@@ -1,4 +1,4 @@
-<img width="1886" height="899" alt="3" src="https://github.com/user-attachments/assets/6d8bf70e-9ae7-42b7-a1e3-50881c9ec78d" /><img width="1179" height="2334" alt="2" src="https://github.com/user-attachments/assets/862babf7-0af3-4f9b-befe-08020f3f21a7" /># QuickBridge
+# QuickBridge
 
 A lightweight **local LAN host** app for moving text and files between your
 devices. Run it on one computer; open it from your phone, tablet or another
