@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBridge — local network transfer</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+    <a href="/" class="brand">⚡ QuickBridge</a>
+    <span id="connection" class="status status--idle">offline</span>
+</header>
+
+<main class="container">
+
+    <!-- Landing view -->
+    <section id="landing" class="card hidden">
+        <h1>Share text &amp; files across devices on your network</h1>
+        <p class="muted">This computer hosts the session. Other devices on the same Wi-Fi/LAN
+            connect through a normal browser — no app to install.</p>
+
+        <button id="createBtn" class="btn btn--primary btn--lg">Create new session</button>
+
+        <div class="divider"><span>or</span></div>
+
+        <form id="joinForm" class="join-row">
+            <input id="joinInput" class="input" type="text" inputmode="latin"
+                   autocomplete="off" maxlength="5" placeholder="Enter code (e.g. AB7KQ)">
+            <button class="btn" type="submit">Join</button>
+        </form>
+        <p id="landingError" class="error hidden"></p>
+    </section>
+
+    <!-- Session view -->
+    <section id="session" class="card hidden">
+
+        <!-- Share section: code + LAN URL + copy + scannable QR -->
+        <div class="share-section">
+            <div class="share-info">
+                <span class="muted">Session code</span>
+                <div class="code" id="codeLabel">-----</div>
+                <p class="share muted">Open this on another device on the same network:</p>
+                <a id="shareUrl" class="share-url" href="#" target="_blank" rel="noopener"></a>
+                <button id="copyBtn" class="btn btn--ghost" title="Copy share link">Copy link</button>
+                <p id="lanWarning" class="warn hidden"></p>
+            </div>
+            <div class="share-qr">
+                <div id="qrcode" class="qr" aria-label="QR code linking to this session"></div>
+                <span class="muted qr-hint">Scan to open on your phone</span>
+            </div>
+        </div>
+
+        <div class="text-head">
+            <label class="label" for="textArea">Shared text</label>
+            <div class="text-actions">
+                <button id="copyTextBtn" class="btn btn--ghost btn--sm" type="button" disabled>Copy text</button>
+                <span id="copyTextStatus" class="muted copy-status" aria-live="polite"></span>
+            </div>
+        </div>
+        <textarea id="textArea" class="textarea" placeholder="Type or paste here — it syncs instantly…"
+                  maxlength="100000"></textarea>
+        <div class="meta-row">
+            <span id="charCount" class="muted">0 / 100,000</span>
+            <span id="textStatus" class="muted"></span>
+        </div>
+
+        <div class="files">
+            <div class="files-head">
+                <h2>Files <span class="muted" id="fileCount">(0)</span></h2>
+                <div class="upload-controls">
+                    <label class="btn file-pick">
+                        Choose file
+                        <input id="fileInput" type="file" hidden>
+                    </label>
+                    <button id="uploadBtn" class="btn btn--primary" disabled>Upload</button>
+                </div>
+            </div>
+            <div id="uploadRow" class="upload-row hidden">
+                <span id="uploadName" class="fi-name"></span>
+                <div class="progress hidden" id="uploadProgressWrap">
+                    <div class="progress-bar" id="uploadProgress"></div>
+                </div>
+                <span id="uploadStatus" class="muted"></span>
+            </div>
+            <ul id="fileList" class="file-list"></ul>
+            <p id="emptyFiles" class="muted">No files yet.</p>
+            <p id="limitInfo" class="muted limit-info"></p>
+        </div>
+
+        <!-- Hosting / privacy notices -->
+        <ul class="notices">
+            <li>🖥️ This computer is hosting the session.</li>
+            <li>📶 Devices on the same Wi-Fi/LAN can connect using the QR code.</li>
+            <li>🗂️ Files are stored temporarily on this computer and deleted automatically.</li>
+            <li>⏳ Keep this app running while using QuickBridge.</li>
+        </ul>
+
+        <p id="sessionError" class="error hidden"></p>
+    </section>
+
+</main>
+
+<!-- SockJS + STOMP clients from CDN (no build step for the MVP). -->
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<!-- QR code generator, vendored locally (no runtime CDN dependency). -->
+<script src="/vendor/qrcode.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
