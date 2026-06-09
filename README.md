@@ -1,4 +1,4 @@
-# QuickBridge
+<img width="1886" height="899" alt="3" src="https://github.com/user-attachments/assets/6d8bf70e-9ae7-42b7-a1e3-50881c9ec78d" /><img width="1179" height="2334" alt="2" src="https://github.com/user-attachments/assets/862babf7-0af3-4f9b-befe-08020f3f21a7" /># QuickBridge
 
 A lightweight **local LAN host** app for moving text and files between your
 devices. Run it on one computer; open it from your phone, tablet or another
@@ -52,7 +52,10 @@ laptop in a normal browser — **no app to install** on the other device.
   **Delete** it.
 - **Share**: the session page shows the **LAN URL**, a **Copy link** button, and a
   **QR code** to open the same session on another device.
-
+<img width="442" height="268" alt="image" src="https://github.com/user-attachments/assets/4eeb9fc9-048d-4289-8978-2580e5ef2557" />
+<img width="1898" height="903" alt="1" src="https://github.com/user-attachments/assets/f30a23f6-e72a-4c05-a3fd-48ad88457155" />
+<img width="1179" height="2334" alt="2" src="https://github.com/user-attachments/assets/15682991-4c22-4cfb-9bd8-800669c00d48" />
+<img width="1886" height="899" alt="3" src="https://github.com/user-attachments/assets/a050561f-dc4c-4ad3-800e-075311ae4048" />
 ---
 
 ## 3. Storage model
